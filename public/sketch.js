@@ -11,8 +11,9 @@ function setup() {
   })
 
   socket.on('mouse_react',function(data){
-    noStroke(); // disables drawing stroke (outline of shape)
-    fill(0,0,255); // sets the color used to fill shapes
+    //noStroke(); // disables drawing stroke (outline of shape)
+    //fill(0,0,255); // sets the color used to fill shapes
+    stroke(255);
     line(data.x1,data.y1,data.x2,data.y2);
   })
 }
