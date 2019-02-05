@@ -1,6 +1,7 @@
 var socket;
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(500,500);
+  //createCanvas(windowWidth, windowHeight);
   background(0);
   
   socket = io(); // client sends io() connection request to server
@@ -31,8 +32,8 @@ function mouseDragged(){
   ellipse(mouseX,mouseY,20,20);
 }
 
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
-  background(0);
-}
+// function windowResized() {
+//   resizeCanvas(windowWidth, windowHeight);
+//   background(0);
+// }
 
