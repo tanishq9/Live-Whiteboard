@@ -13,23 +13,23 @@ function setup() {
   socket.on('mouse_react',function(data){
     noStroke(); // disables drawing stroke (outline of shape)
     fill(0,0,255); // sets the color used to fill shapes
-    ellipse(data.x,data.y,20,20);
+    line(data.x1,data.y1,data.x2,data.y2);
   })
 }
 
 function mouseDragged(){
   console.log('Sending '+mouseX+","+mouseY);
-
   var data = {
-    x : mouseX,
-    y : mouseY
-  };
-
-  socket.emit('mouse_dragged',data);
-
-  noStroke(); // disables drawing stroke (outline of shape)
-  fill(255); // sets the color used to fill shapes
-  ellipse(mouseX,mouseY,20,20);
+      x1 : mouseX,
+      y1 : mouseY,
+      x2 : pmouseX,
+      y2 : pmouseY
+   };
+   socket.emit('mouse_dragged',data);
+   //  noStroke(); // disables drawing stroke (outline of shape)
+   // fill(255); // sets the color used to fill shapes
+   stroke(255);
+   line(mouseX, mouseY, pmouseX, pmouseY);
 }
 
 // function windowResized() {

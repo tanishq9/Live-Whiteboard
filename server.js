@@ -15,7 +15,7 @@ io.on('connection',function(socket){
     console.log('New socket from ' + socket.id);
     socket.emit('connected',socket.id);
     socket.on('mouse_dragged',function(data){
-        console.log('Received '+data.x+","+data.y);
+        console.log('Received '+data.x1+","+data.y1+"   "+data.x2+","+data.y2);
         socket.broadcast.emit('mouse_react',data);
     });
 })
