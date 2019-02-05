@@ -1,6 +1,6 @@
 var socket;
 function setup() {
-  createCanvas(500,500);
+  createCanvas(250,500);
   //createCanvas(windowWidth, windowHeight);
   background(0);
   
