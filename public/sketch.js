@@ -1,4 +1,14 @@
 var socket;
+
+$(function(){
+  console.log('Page loaded.');
+  let clear_button = $('#restart-button');
+  clear_button.click(function(){
+    background(0);
+    socket.emit('clear_canvas');
+  });
+})
+
 function setup() {
   createCanvas(300,500);
   //createCanvas(windowWidth, windowHeight);
@@ -8,14 +18,18 @@ function setup() {
 
   socket.on('connected',function(id){
     console.log('Connected '+id);
-  })
+  });
 
   socket.on('mouse_react',function(data){
     //noStroke(); // disables drawing stroke (outline of shape)
     //fill(0,0,255); // sets the color used to fill shapes
     stroke(255);
     line(data.x1,data.y1,data.x2,data.y2);
-  })
+  });
+
+  socket.on('clear_all',function(){
+    background(0);
+  });
 }
 
 function mouseDragged(){

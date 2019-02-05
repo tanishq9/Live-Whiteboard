@@ -18,6 +18,9 @@ io.on('connection',function(socket){
         console.log('Received '+data.x1+","+data.y1+"   "+data.x2+","+data.y2);
         socket.broadcast.emit('mouse_react',data);
     });
+    socket.on('clear_canvas',function(){
+        socket.broadcast.emit('clear_all');
+    });
 })
 
 server.listen(SERVER_PORT,function(){
